@@ -35,7 +35,7 @@ st.divider()
 @st.cache_data(ttl=300)
 def load_data():
     with engine.connect() as conn:
-        df = pd.read_sql("SELECT * FROM iocs", conn)
+        df = pd.read_sql(text("SELECT * FROM iocs"), conn)
     return df
 
 df = load_data()
