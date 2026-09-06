@@ -8,7 +8,7 @@ import pandas as pd
 from sqlalchemy import text
 from app.data.database import engine, init_db
 
-init_db()
+#init_db()
 
 st.set_page_config(
     page_title="CTI Dashboard",
