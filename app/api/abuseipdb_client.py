@@ -1,10 +1,17 @@
-import requests
+import sys
 import os
-from dotenv import load_dotenv
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', '..'))
 
-load_dotenv()
+import requests
 
-ABUSE_KEY = os.getenv("ABUSEIPDB_API_KEY")
+try:
+    import streamlit as st
+    ABUSE_KEY = st.secrets["ABUSEIPDB_API_KEY"]
+except Exception:
+    from dotenv import load_dotenv
+    load_dotenv()
+    ABUSE_KEY = os.getenv("ABUSEIPDB_API_KEY")
+
 BASE_URL = "https://api.abuseipdb.com/api/v2"
 
 def check_ip(ip_address):
@@ -45,11 +52,3 @@ def check_ip(ip_address):
             "is_tor": False,
             "domain": "Unknown"
         }
-
-def test_connection():
-    result = check_ip("8.8.8.8")
-    if result["country"] != "Unknown":
-        print(f"AbuseIPDB Connected! Test IP score: {result['abuse_score']}")
-        return True
-    print("AbuseIPDB connection failed.")
-    return False

@@ -1,10 +1,17 @@
-import requests
+import sys
 import os
-from dotenv import load_dotenv
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', '..'))
 
-load_dotenv()
+import requests
 
-OTX_KEY = os.getenv("OTX_API_KEY")
+try:
+    import streamlit as st
+    OTX_KEY = st.secrets["OTX_API_KEY"]
+except Exception:
+    from dotenv import load_dotenv
+    load_dotenv()
+    OTX_KEY = os.getenv("OTX_API_KEY")
+
 BASE_URL = "https://otx.alienvault.com/api/v1"
 
 def get_recent_pulses(limit=20):
@@ -33,11 +40,3 @@ def extract_iocs(pulse):
             "tags": ",".join(pulse.get("tags", [])),
         })
     return iocs
-
-def test_connection():
-    pulses = get_recent_pulses(limit=2)
-    if pulses:
-        print(f"OTX Connected! Got {len(pulses)} pulses.")
-        return True
-    print("OTX connection failed.")
-    return False
