@@ -1,5 +1,7 @@
 [server]
-headless = false
+address = "0.0.0.0"
+enableCORS = false
+enableXsrfProtection = false
 
 [browser]
 gatherUsageStats = false
