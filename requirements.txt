@@ -1,5 +1,8 @@
-streamlit
-plotly
-pandas
-sqlalchemy
-requests
+streamlit==1.63.0
+plotly==7.0.0
+pandas==3.0.5
+sqlalchemy==2.0.52
+requests==2.34.2
+python-dotenv==1.2.3
+apscheduler==3.11.3
+streamlit-autorefresh==1.0.1
