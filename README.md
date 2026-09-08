@@ -125,8 +125,8 @@ cti-dashboard/
 SOC Analyst | Cybersecurity Enthusiast  
 🏆 Top 6% Globally — HackTheBox CTF
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?style=flat&logo=linkedin)](https://linkedin.com/in/chandanyadav)
-[![GitHub](https://img.shields.io/badge/GitHub-Follow-black?style=flat&logo=github)](https://github.com/chandanswenepal-code)
+linkedin: https://www.linkedin.com/in/chandan-yadavswe/
+
 
 ---
 
